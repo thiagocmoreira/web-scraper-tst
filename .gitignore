@@ -10,3 +10,5 @@ test/build
 *.covered.js
 *.swp
 .DS_Store
+
+data

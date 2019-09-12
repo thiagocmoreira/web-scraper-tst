@@ -8,11 +8,12 @@
   "author": "Thiago Moreira <thiago.cmoreira@yahoo.com.br>",
   "license": "MIT",
   "scripts": {
-    "start": "yarn nodemon -r esm index.js",
+    "start": "node -r esm index.js",
     "dev": "cross-env NODE_ENV=development yarn start"
   },
   "dependencies": {
     "esm": "^3.2.25",
+    "fs-extra": "^8.1.0",
     "request": "^2.88.0"
   },
   "devDependencies": {
