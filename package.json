@@ -1,0 +1,21 @@
+{
+  "name": "tst-juris",
+  "version": "0.0.1",
+  "description": "Crawler TST",
+  "main": "index.js",
+  "module": "main.js",
+  "repository": "https://github.com/thiagocmoreira/tst-juris",
+  "author": "Thiago Moreira <thiago.cmoreira@yahoo.com.br>",
+  "license": "MIT",
+  "scripts": {
+    "start": "yarn nodemon -r esm index.js",
+    "dev": "cross-env NODE_ENV=development yarn start"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.1",
+    "nodemon": "^1.19.2"
+  }
+}

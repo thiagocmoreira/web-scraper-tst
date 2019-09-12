@@ -1,0 +1,11 @@
+FROM node:10-alpine
+
+WORKDIR /server
+
+RUN apk update -y && apk add -y curl
+
+COPY ./package.json ./yarn.lock /server/
+
+RUN yarn install --prod=false
+
+CMD ["yarn", "start"]

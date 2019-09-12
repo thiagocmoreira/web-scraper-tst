@@ -1,0 +1,12 @@
+node_modules
+logs
+*.log
+*.log.*
+
+.nyc_output
+coverage
+test/build
+.self_coverage
+*.covered.js
+*.swp
+.DS_Store
