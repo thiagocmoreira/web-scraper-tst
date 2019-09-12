@@ -12,7 +12,8 @@
     "dev": "cross-env NODE_ENV=development yarn start"
   },
   "dependencies": {
-    "esm": "^3.2.25"
+    "esm": "^3.2.25",
+    "request": "^2.88.0"
   },
   "devDependencies": {
     "cross-env": "^5.2.1",
