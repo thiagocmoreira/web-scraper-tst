@@ -23,8 +23,8 @@ let reqBody = {
 		'ACORDAO'
 	],
 	'orgao': 'TST',
-	'publicacaoInicial': '2010-10-26',
-	'publicacaoFinal': '2010-10-31',
+	'publicacaoInicial': '2011-03-21',
+	'publicacaoFinal': '2011-03-31',
 	'julgamentoInicial': null,
 	'julgamentoFinal': null
 }

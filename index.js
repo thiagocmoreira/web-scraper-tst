@@ -3,8 +3,6 @@ import fs from 'fs-extra'
 import { readOffset, writeFile, writeError } from './helpers/fs'
 import { reqBody, reqHeaders } from './config'
 
-let total = 2799
-
 async function getRegisters (offset, folder) {
   try {
     let data = await request.post({
@@ -16,6 +14,8 @@ async function getRegisters (offset, folder) {
     await fs.ensureDir(`./data/registers/${folder}`)
     await writeFile(`./data/registers/${folder}/${offset}.json`, data, `${offset}.json created!`)
     await writeFile(`./data/current-offset.json`, { offset: offset }, `JSON offset updated: ${offset}\n`)
+
+    return data
   } catch (err) {
     console.log(err.message, '\n')
     await writeError(offset)
@@ -27,19 +27,21 @@ const sleep = (timeout = 3000) => new Promise((resolve, reject) => setTimeout(re
 
 async function main () {
   console.log('Running crawler...\n')
+  let total = 0
   let offset = await readOffset() || 1
   let reqCount = 0
-  while (offset <= total) {
+  do {
     if (reqCount === countToSleep) {
       await sleep()
       console.log('Sleeping... (3 seconds)\n')
       reqCount = 0
     }
     console.log('Current offset:', offset)
-    await getRegisters(offset, '2010-10-31')
+    total = (await getRegisters(offset, '2011-03-31')).totalRegistros
+    console.log(total)
     reqCount++
     offset += 50
-  }
+  } while (offset <= total)
 }
 
 main()
