@@ -1,32 +1,34 @@
-let reqBody = {
-	'ou': '',
-	'e': '',
-	'termoExato': '',
-	'naoContem': '',
-	'ementa': '',
-	'dispositivo': '',
-	'numeracaoUnica': {
-		'numero': '',
-		'ano': '',
-		'digito': '',
-		'orgao': '5',
-		'tribunal': '',
-		'vara': ''
-	},
-	'orgaosJudicantes': [],
-	'ministros': [],
-	'convocados': [],
-	'classesProcessuais': [],
-	'indicadores': [],
-	'tiposDecisoes': [],
-	'tipos': [
-		'ACORDAO'
-	],
-	'orgao': 'TST',
-	'publicacaoInicial': '2011-03-21',
-	'publicacaoFinal': '2011-03-31',
-	'julgamentoInicial': null,
-	'julgamentoFinal': null
+function formatReqBody (dataInicial, dataFinal) {
+	return {
+		'ou': '',
+		'e': '',
+		'termoExato': '',
+		'naoContem': '',
+		'ementa': '',
+		'dispositivo': '',
+		'numeracaoUnica': {
+			'numero': '',
+			'ano': '',
+			'digito': '',
+			'orgao': '5',
+			'tribunal': '',
+			'vara': ''
+		},
+		'orgaosJudicantes': [],
+		'ministros': [],
+		'convocados': [],
+		'classesProcessuais': [],
+		'indicadores': [],
+		'tiposDecisoes': [],
+		'tipos': [
+			'ACORDAO'
+		],
+		'orgao': 'TST',
+		'publicacaoInicial': dataInicial,
+		'publicacaoFinal': dataFinal,
+		'julgamentoInicial': null,
+		'julgamentoFinal': null
+	}
 }
 
 let reqHeaders = {
@@ -38,6 +40,6 @@ let reqHeaders = {
 }
 
 export {
-  reqBody,
+  formatReqBody,
   reqHeaders
 }
