@@ -13,13 +13,13 @@
   },
   "dependencies": {
     "esm": "^3.2.25",
-    "fs-extra": "^8.1.0",
-    "luxon": "^1.17.3",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "fs-extra": "^10.1.0",
+    "luxon": "^3.0.4",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6"
   },
   "devDependencies": {
-    "cross-env": "^5.2.1",
-    "nodemon": "^1.19.2"
+    "cross-env": "^7.0.3",
+    "nodemon": "^2.0.20"
   }
 }
