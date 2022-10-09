@@ -28,7 +28,7 @@ const countToSleep = 5
 const sleep = (timeout = 3000) => new Promise((resolve, reject) => setTimeout(resolve, timeout))
 
 async function main () {
-  console.log('Running crawler...\n')
+  console.log('Running TST Scraper...\n')
 
   let interval = 10
   let date = await readDate()
