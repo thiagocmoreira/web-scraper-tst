@@ -1,36 +1,15 @@
-import request from 'request-promise'
 import { DateTime } from 'luxon'
-import fs from 'fs-extra'
-import { readOffset, writeFile, writeError, readDate } from './helpers/fs'
-import { formatReqBody, reqHeaders } from './config'
+import { getJuris } from './utils/jurisprudence'
+import {  writeFile, readDate } from './utils/fs'
 
-async function getRegisters (offset, initialDate, finalDate) {
-  try {
-    let data = await request.post({
-      url: `https://jurisprudencia-backend.tst.jus.br/rest/pesquisa-textual/${offset}/50`,
-      headers: reqHeaders,
-      body: formatReqBody(initialDate, finalDate),
-      json: true
-    })
-    await fs.ensureDir(`./data/registers/${finalDate}`)
-    await writeFile(`./data/registers/${finalDate}/${offset}.json`, data, `${offset}.json created!`)
-    await writeFile(`./data/offsets/${finalDate}.json`, { offset: offset }, `JSON offset created: ${offset}\n`)
-
-    return data
-  } catch (err) {
-    console.log(err.message, '\n')
-    await writeError(offset, finalDate)
-  }
-}
-
-let intervals = 5
+let intervals = 1
 const countToSleep = 5
 const sleep = (timeout = 3000) => new Promise((resolve, reject) => setTimeout(resolve, timeout))
 
 async function main () {
   console.log('Running TST Scraper...\n')
 
-  let interval = 10
+  let interval = 0
   let date = await readDate()
   let currentDate = DateTime.fromISO(date)
   console.log('JSON date:', currentDate.toISODate(), '\n')
@@ -53,7 +32,7 @@ async function main () {
         reqCount = 0
       }
       console.log('Current offset:', offset)
-      let data = await getRegisters(offset, initialDate.toISODate(), finalDate.toISODate())
+      let data = await getJuris(offset, initialDate.toISODate(), finalDate.toISODate())
       if (data) {
         total = data.totalRegistros
       }
