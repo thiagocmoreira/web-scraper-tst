@@ -1,4 +1,4 @@
-function formatReqBody (dataInicial, dataFinal) {
+function formatReqBody (dataInicial, dataFinal, jurisTypes = ['ACORDAO']) {
 	return {
 		'ou': '',
 		'e': '',
@@ -20,9 +20,7 @@ function formatReqBody (dataInicial, dataFinal) {
 		'classesProcessuais': [],
 		'indicadores': [],
 		'tiposDecisoes': [],
-		'tipos': [
-			'ACORDAO'
-		],
+		'tipos': jurisTypes,
 		'orgao': 'TST',
 		'publicacaoInicial': dataInicial,
 		'publicacaoFinal': dataFinal,

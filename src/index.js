@@ -2,7 +2,7 @@ import { DateTime } from 'luxon'
 import { getJuris } from './utils/jurisprudence'
 import {  writeFile, readDate } from './utils/fs'
 
-let intervals = 1
+let intervals = 5
 const countToSleep = 5
 const sleep = (timeout = 3000) => new Promise((resolve, reject) => setTimeout(resolve, timeout))
 
@@ -32,7 +32,8 @@ async function main () {
         reqCount = 0
       }
       console.log('Current offset:', offset)
-      let data = await getJuris(offset, initialDate.toISODate(), finalDate.toISODate())
+      const jurisTypes = ['ACORDAO']
+      let data = await getJuris(offset, initialDate.toISODate(), finalDate.toISODate(), jurisTypes)
       if (data) {
         total = data.totalRegistros
       }
