@@ -2,7 +2,7 @@
 
 <h2 align="center">Scraper de Jurisprudências do TST</h2><br>
 <p align="center">
-  Traz em cada registro dados como <strong>número</strong>, <strong>tipo</strong>, <strong>ementa</strong>, <strong>numero</strong>, <strong>datas</strong>, <strong>relator</strong>, <strong>temas</strong>, <strong>inteiro teor em HTML</strong>, dentre outros<br>
+  Traz em cada registro dados como <strong>número</strong>, <strong>tipo</strong>, <strong>ementa</strong>, <strong>datas</strong>, <strong>relator</strong>, <strong>temas</strong>, <strong>inteiro teor em HTML</strong>, dentre outros<br>
 </p>
 
 <p align="center">
